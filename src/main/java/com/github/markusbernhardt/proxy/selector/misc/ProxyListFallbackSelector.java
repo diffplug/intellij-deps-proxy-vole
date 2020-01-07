@@ -22,8 +22,8 @@ import java.util.concurrent.ConcurrentHashMap;
 
 public class ProxyListFallbackSelector extends ProxySelector {
 
-	// Retry a unresponsive proxy after 10 minutes per default.
-	private static final int DEFAULT_RETRY_DELAY = 1000 * 60 * 10;
+	// Retry a unresponsive proxy after 1 second by default.
+	private static final int DEFAULT_RETRY_DELAY = 1000;
 
 	private ProxySelector delegate;
 	private ConcurrentHashMap<SocketAddress, Long> failedDelayCache;
