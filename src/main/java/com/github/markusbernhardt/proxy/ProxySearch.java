@@ -263,7 +263,7 @@ public class ProxySearch implements ProxySearchStrategy {
 			if (this.pacCacheSize > 0) {
 				selector = new BufferedProxySelector(this.pacCacheSize, this.pacCacheTTL, selector, pacCacheScope);
 			}
-			selector = new ProxyListFallbackSelector(selector);
+			// selector = new ProxyListFallbackSelector(selector);
 		}
 		return selector;
 	}
@@ -294,11 +294,9 @@ public class ProxySearch implements ProxySearchStrategy {
 	public static void main(String[] args) {
 		ProxySearch ps = ProxySearch.getDefaultProxySearch();
 		Logger.setBackend(new LogBackEnd() {
-
 			public void log(Class<?> clazz, LogLevel loglevel, String msg, Object... params) {
 				System.out.println(MessageFormat.format(msg, params));
 			}
-
 		});
 		ps.getProxySelector();
 	}
